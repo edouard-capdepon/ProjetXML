@@ -1,6 +1,18 @@
 package org.example.Restaurant;
 
-public class Entree extends Item{
+public class Entree extends Item {
+
+    String type;
+
+    public Entree(){
+
+    }
+
+    public Entree(String nom, String description, String type) {
+        super(nom, description);
+        this.type = type;
+    }
+
     public String getType() {
         return type;
     }
@@ -9,5 +21,5 @@ public class Entree extends Item{
         this.type = type;
     }
 
-    String type;
+
 }

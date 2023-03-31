@@ -11,16 +11,14 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="moyenPaiement" >
-                    <xs:complexType>
-                        <xs:simpleContent>
-                            <xs:restriction base="xs:all">
-                                <xs:enumeration value="Espece"/>
-                                <xs:enumeration value="Carte Bancaire"/>
-                                <xs:enumeration value="Paypal"/>
-                            </xs:restriction>
-                        </xs:simpleContent>
-                    </xs:complexType>
+                <xs:element name="moyenPaiement" maxOccurs="unbounded" >
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Carte Bancaire"></xs:enumeration>
+                            <xs:enumeration value="Espece"></xs:enumeration>
+                            <xs:enumeration value="Paypal"></xs:enumeration>
+                        </xs:restriction>
+                    </xs:simpleType>
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
@@ -36,13 +34,13 @@
         </xs:sequence>
         <xs:attribute name="boisson" use="required">
             <xs:simpleType>
-                <xs:restriction>
+                <xs:restriction base="xs:string">
                     <xs:enumeration value="incluse au choix"/>
                     <xs:enumeration value="non-incluse"/>
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
-        <xs:attribute name="prix" type="xs:int" use="required"/>
+        <xs:attribute name="prix" type="xs:double" use="required"/>
     </xs:complexType>
 
     <!-- Type Entree -->
@@ -75,7 +73,7 @@
         <xs:sequence>
             <xs:element name="nom">
                 <xs:simpleType>
-                    <xs:restriction>
+                    <xs:restriction base="xs:string">
                         <xs:enumeration value="Coca Cola"/>
                         <xs:enumeration value="Fanta"/>
                         <xs:enumeration value="Eau Plate"/>
@@ -89,5 +87,6 @@
                 </xs:simpleType>
             </xs:element>
         </xs:sequence>
+        <xs:attribute name="prix" type="xs:double" use="required"></xs:attribute>
     </xs:complexType>
 </xs:schema>

@@ -10,6 +10,20 @@ public class Menu {
     public ArrayList<Boisson> boissons = new ArrayList<>();
     String boisson;
 
+    public Menu() {
+
+    }
+
+    public Menu(ArrayList<Entree> entrees, ArrayList<Plat> plats, ArrayList<Fromage> fromages, ArrayList<Dessert> desserts, ArrayList<Boisson> boissons, String boisson, String prix) {
+        this.entrees = entrees;
+        this.plats = plats;
+        this.fromages = fromages;
+        this.desserts = desserts;
+        this.boissons = boissons;
+        this.boisson = boisson;
+        this.prix = prix;
+    }
+
     public String getBoisson() {
         return boisson;
     }
@@ -27,4 +41,5 @@ public class Menu {
     }
 
     public String prix;
+
 }

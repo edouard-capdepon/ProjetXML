@@ -4,6 +4,14 @@ public abstract class Item {
     String nom;
     String description;
 
+    public Item() {
+    }
+
+    public Item(String nom, String description) {
+        this.nom = nom;
+        this.description = description;
+    }
+
     public String getNom() {
         return nom;
     }

@@ -1,15 +1,18 @@
-<?xml version="1.0"?>
+<?xml version = '1.0' encoding = 'UTF-8'?>
 <?xml-stylesheet type="text/xsl" href="Menu.xsl"?>
-<catalogue xsi:schemaLocation="Menu.xsd"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="$LOCAL_SCHEMA$">
-    <menu prix="20" boisson="incluse au choix">
+<catalogue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Menu.xsd">
+    <menu boisson="incluse au choix" prix="20">
         <entree type="froide">
             <nom>Tartare de saumon</nom>
-            <description>un tartare de saumon est un plat de la cuisine française, reprenant le principe du steak tartare, mais en l'appliquant au saumon.</description>
+            <description>un tartare de saumon est un plat de la cuisine française, reprenant le principe du steak
+                tartare, mais en l'appliquant au saumon.
+            </description>
         </entree>
         <plat>
             <nom>Blanquette de veau facile</nom>
-            <description>un plat traditionnel, la blanquette de veau, version Hervé Cuisine, qui se traduit par une viande fondante et une sauce onctueuse</description>
+            <description>un plat traditionnel, la blanquette de veau, version Hervé Cuisine, qui se traduit par une
+                viande fondante et une sauce onctueuse
+            </description>
         </plat>
         <fromage>
             <nom>Le Bleu d'Auvergne</nom>
@@ -24,7 +27,7 @@
             <description>un dessert composé de choux à la crème de citron vert</description>
         </dessert>
     </menu>
-    <menu prix="15" boisson="incluse au choix">
+    <menu boisson="incluse au choix" prix="15">
         <entree type="chaude">
             <nom>Soupe vitaminée</nom>
             <description>une soupe composée de carotte, orange et panais</description>
@@ -38,7 +41,7 @@
             <description>un flan sur une base de pâte brisée</description>
         </dessert>
     </menu>
-    <menu prix="15" boisson="incluse au choix">
+    <menu boisson="incluse au choix" prix="15">
         <entree type="froide">
             <nom>Salade de crevettes au curry</nom>
             <description>une salade à base de crevettes et une sauce de cuzzy</description>
@@ -52,18 +55,87 @@
             <description>un dessert composé de lait, ouefs, et sucre</description>
         </dessert>
     </menu>
+    <menu boisson="incluse au choix" prix="12.5">
+        <entree>
+            <nom>entree1</nom>
+            <description>Description 1 de l'entree 1</description>
+        </entree>
+        <plat>
+            <nom>Plat1</nom>
+            <description>Description 1 du plat 1</description>
+        </plat>
+        <dessert>
+            <nom>Dessert1</nom>
+            <description>Description 1 du dessert1</description>
+        </dessert>
+    </menu>
+    <menu boisson="non-incluse" prix="12.5">
+        <entree>
+            <nom>entree2</nom>
+            <description>Description 1 de l'entree 2</description>
+        </entree>
+        <plat>
+            <nom>Plat2</nom>
+            <description>Description 1 du plat 2</description>
+        </plat>
+        <fromage>
+            <nom>Fromage1</nom>
+            <description>Description 1 du fromage 1</description>
+        </fromage>
+        <dessert>
+            <nom>Dessert2</nom>
+            <description>Description 1 du dessert2</description>
+        </dessert>
+    </menu>
+    <menu boisson="incluse au choix" prix="12.5">
+        <entree>
+            <nom>entree1</nom>
+            <description>Description 1 de l'entree 1</description>
+        </entree>
+        <plat>
+            <nom>Plat1</nom>
+            <description>Description 1 du plat 1</description>
+        </plat>
+        <dessert>
+            <nom>Dessert1</nom>
+            <description>Description 1 du dessert1</description>
+        </dessert>
+    </menu>
+    <menu boisson="non-incluse" prix="12.5">
+        <entree>
+            <nom>entree2</nom>
+            <description>Description 1 de l'entree 2</description>
+        </entree>
+        <plat>
+            <nom>Plat2</nom>
+            <description>Description 1 du plat 2</description>
+        </plat>
+        <fromage>
+            <nom>Fromage1</nom>
+            <description>Description 1 du fromage 1</description>
+        </fromage>
+        <dessert>
+            <nom>Dessert2</nom>
+            <description>Description 1 du dessert2</description>
+        </dessert>
+    </menu>
     <boissons>
-        <boisson>
+        <boisson prix="1">
             <nom>Eau Plate</nom>
         </boisson>
-        <boisson>
+        <boisson prix="1.5">
             <nom>Eau Gazeuse</nom>
         </boisson>
-        <boisson>
+        <boisson prix="2.5">
             <nom>Coca Cola</nom>
         </boisson>
+        <boisson prix="1">
+            <nom>Café</nom>
+        </boisson>
     </boissons>
+
     <moyenPaiement>Carte Bancaire</moyenPaiement>
-    <moyenPaiement>Espece</moyenPaiement>
     <moyenPaiement>Paypal</moyenPaiement>
+    <moyenPaiement>Espece</moyenPaiement>
+
 </catalogue>

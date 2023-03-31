@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="XQUERY">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/java/lib/apache-xmlbeans.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/java/lib/orai18n-mapping.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/java/lib/oxquery.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/java/lib/xmlparserv2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/java/lib/xqjapi.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
