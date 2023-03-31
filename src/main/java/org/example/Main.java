@@ -21,9 +21,8 @@ public class Main {
         try {
 
 
-            //Affichage d'un xml dans la console JAVA
+            //Conversion d'un xml en objet JAVA, et affichage de celui-ci dans la console
             Catalogue catalogue = Catalogue.createCatalogueFromFile("src/xml/Menu.xml");
-            System.out.println("test : " + catalogue);
 
 
             //Recherche via XPath
@@ -36,19 +35,26 @@ public class Main {
 
 
             //Ajoute une nouvelle boisson
-            Catalogue.addBoissonToCatalogue(new Boisson("Café", "1"), "src/xml/Menu.xml");
+            //Catalogue.addBoissonToCatalogue(new Boisson("Café", "1"), "src/xml/Menu.xml");
 
             //Ajoute un nouveau moyen de paiement
-            Catalogue.addMoyenPaiementToCatalogue(new MoyenPaiement("Espece"), "src/xml/Menu.xml");
+            //Catalogue.addMoyenPaiementToCatalogue(new MoyenPaiement("Espece"), "src/xml/Menu.xml");
 
             //Ajoute un nouveau Menu
-            ArrayList<Entree> entrees = new ArrayList<>();
+           /* ArrayList<Entree> entrees = new ArrayList<>();
             entrees.add(new Entree("TESTNOM", "TESTDESCRIPTION", "chaude"));
             ArrayList<Plat> plats = new ArrayList<>();
             plats.add(new Plat("TESTNOM", "TESTDESCRIPTION"));
             ArrayList<Fromage> fromages = new ArrayList<>();
+            fromages.add(new Fromage("TESTNOM", "TESTDESCRIPTION"));
             ArrayList<Dessert> desserts = new ArrayList<>();
-            Catalogue.addMenuToCatalogue(new Menu(), "src/xml/Menu.xml");
+            desserts.add(new Dessert("TESTNOM", "TESTDESCRIPTION"));
+            Catalogue.addMenuToCatalogue(new Menu(entrees, plats, fromages, desserts, "incluse au choix", "17.5"), "src/xml/Menu.xml");
+           */
+
+            //Supprime le menu à la position choisie
+            //Catalogue.deleteMenuFromCatalogueByPosition(1, "src/xml/Menu.xml");
+
 
             //Supprime une boisson
             //Catalogue.deleteBoissonFromCatalogue(new Boisson("Vin"),  "src/xml/Menu.xml");

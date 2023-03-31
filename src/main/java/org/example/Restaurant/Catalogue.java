@@ -1,6 +1,7 @@
 package org.example.Restaurant;
 
 
+import org.example.Recherche.CatalogueSearcherXPATH;
 import org.example.Util;
 import org.w3c.dom.*;
 
@@ -17,6 +18,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPathExpressionException;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
@@ -142,6 +144,7 @@ public class Catalogue {
 
         }
 
+        System.out.println(catalogue.toString());
         return catalogue;
     }
 
@@ -283,56 +286,69 @@ public class Catalogue {
 
     }
 
-    public static void addMenuToCatalogue(Menu menu, String xmlPath){
+    public static void addMenuToCatalogue(Menu menu, String xmlPath) {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             org.w3c.dom.Document document = builder.parse(new File(xmlPath));
             Node catalogue = document.getElementsByTagName("catalogue").item(0);
             Node nMenu = document.createElement("menu");
-            for (Entree e: menu.entrees
-                 ) {
+            ((Element) nMenu).setAttribute("boisson", menu.getBoisson());
+            ((Element) nMenu).setAttribute("prix", menu.getPrix());
+
+
+            for (Entree e : menu.entrees
+            ) {
                 Node nEntree = document.createElement("entree");
                 Node nom = document.createElement("nom");
                 nom.appendChild(document.createTextNode(e.getNom()));
+                nEntree.appendChild(nom);
                 Node description = document.createElement("description");
                 description.appendChild(document.createTextNode(e.getDescription()));
+                nEntree.appendChild(description);
                 nMenu.appendChild(nEntree);
 
             }
 
-            for (Plat p: menu.plats
+            for (Plat p : menu.plats
             ) {
                 Node nPlat = document.createElement("plat");
                 Node nom = document.createElement("nom");
                 nom.appendChild(document.createTextNode(p.getNom()));
+                nPlat.appendChild(nom);
                 Node description = document.createElement("description");
                 description.appendChild(document.createTextNode(p.getDescription()));
+                nPlat.appendChild(description);
                 nMenu.appendChild(nPlat);
 
             }
 
-            for (Fromage f: menu.fromages
+            for (Fromage f : menu.fromages
             ) {
                 Node nFromage = document.createElement("fromage");
                 Node nom = document.createElement("nom");
                 nom.appendChild(document.createTextNode(f.getNom()));
+                nFromage.appendChild(nom);
                 Node description = document.createElement("description");
                 description.appendChild(document.createTextNode(f.getDescription()));
+                nFromage.appendChild(description);
                 nMenu.appendChild(nFromage);
 
             }
 
-            for (Dessert d: menu.desserts
+            for (Dessert d : menu.desserts
             ) {
                 Node nDessert = document.createElement("dessert");
                 Node nom = document.createElement("nom");
                 nom.appendChild(document.createTextNode(d.getNom()));
+                nDessert.appendChild(nom);
                 Node description = document.createElement("description");
                 description.appendChild(document.createTextNode(d.getDescription()));
+                nDessert.appendChild(description);
                 nMenu.appendChild(nDessert);
 
             }
+            catalogue.insertBefore(nMenu, document.getElementsByTagName("menu").item(0));
 
             DOMSource source = new DOMSource(document);
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -346,6 +362,43 @@ public class Catalogue {
         }
     }
 
+    public static void deleteMenuFromCatalogueByPosition(int pos, String xmlPath) {
+
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            org.w3c.dom.Document document = builder.parse(new File(xmlPath));
+            Node catalogue = document.getElementsByTagName("catalogue").item(0);
+            NodeList childs = catalogue.getChildNodes();
+
+            int c = 0;
+            for (int i = 0; i < childs.getLength(); i++) {
+
+                if (childs.item(i).getNodeName().equals("menu")) {
+                    c++;
+                    if (c == pos) {
+                        catalogue.removeChild(childs.item(i));
+                        break;
+                    }
+                }
+
+            }
+
+
+            DOMSource source = new DOMSource(document);
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            StreamResult result = new StreamResult(xmlPath);
+            transformer.transform(source, result);
+
+
+        } catch (ParserConfigurationException | IOException | SAXException |
+                 TransformerException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public static void deleteMoyenPaiementFromCatalogue(MoyenPaiement paiement, String xmlPath) {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -356,7 +409,7 @@ public class Catalogue {
             NodeList moyenPaiements = document.getElementsByTagName("moyenPaiement");
             for (int i = 0; i < moyenPaiements.getLength(); i++) {
                 Node moyen = moyenPaiements.item(i);
-                if(moyen.getTextContent().equals(paiement.getMoyen())){
+                if (moyen.getTextContent().equals(paiement.getMoyen())) {
                     catalogue.removeChild(moyen);
                 }
 

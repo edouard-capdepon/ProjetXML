@@ -1,6 +1,25 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <?xml-stylesheet type="text/xsl" href="Menu.xsl"?>
 <catalogue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Menu.xsd">
+
+    <menu boisson="incluse au choix" prix="17.5">
+        <entree>
+            <nom>TESTNOM</nom>
+            <description>TESTDESCRIPTION</description>
+        </entree>
+        <plat>
+            <nom>TESTNOM</nom>
+            <description>TESTDESCRIPTION</description>
+        </plat>
+        <fromage>
+            <nom>TESTNOM</nom>
+            <description>TESTDESCRIPTION</description>
+        </fromage>
+        <dessert>
+            <nom>TESTNOM</nom>
+            <description>TESTDESCRIPTION</description>
+        </dessert>
+    </menu>
     <menu boisson="incluse au choix" prix="20">
         <entree type="froide">
             <nom>Tartare de saumon</nom>
