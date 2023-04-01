@@ -27,7 +27,7 @@
     <!-- Type Menu -->
     <xs:complexType name="typeMenu">
         <xs:sequence>
-            <xs:element name="entree" type="typeEntree"/>
+            <xs:element name="entree" type="typeEntree" maxOccurs="unbounded"/>
             <xs:element name="plat" type="typeChild"/>
             <xs:element name="fromage" type="typeChild" minOccurs="0"/>
             <xs:element name="dessert" type="typeChild" maxOccurs="unbounded"/>
